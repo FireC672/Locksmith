@@ -1,1 +1,29 @@
 #include "passgen.h"
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <time.h>
+
+// Generates a 64 base password.
+char* base64_pass(int length){
+    char* outpass = malloc(length);
+    if(outpass == NULL)return NULL; 
+    
+    for(int i = 0; i < length; i++){
+        srand(time(0+i));
+        outpass[i] = BASE64_TOKEN(rand()%64);
+    }
+
+    return outpass;
+}
+
+// Generates a hex password.
+char* hex_pass(int length){
+    char* outpass = malloc(length);
+    if(outpass == NULL)return NULL; 
+    
+    for(int i = 0; i < length; i++){
+        srand(time(0+i));
+        outpass[i] = HEXADEC_TOKEN(rand()%64);
+    }
+    return outpass;
+}
