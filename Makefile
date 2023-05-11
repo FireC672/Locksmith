@@ -1,2 +1,2 @@
 all: 
-	g++ locksmith.c -o passgen
+	g++ locksmith.c passgen.c -o passgen
