@@ -5,25 +5,27 @@
 
 // Generates a 64 base password.
 char* base64_pass(int length){
-    char* outpass = malloc(length);
+    char* outpass = malloc(length+2);
     if(outpass == NULL)return NULL; 
     
     for(int i = 0; i < length; i++){
         srand(time(0+i));
         outpass[i] = BASE64_TOKEN(rand()%64);
     }
+    outpass[length+1]='\0';
 
     return outpass;
 }
 
 // Generates a hex password.
 char* hex_pass(int length){
-    char* outpass = malloc(length);
+    char* outpass = malloc(length+2);
     if(outpass == NULL)return NULL; 
     
     for(int i = 0; i < length; i++){
         srand(time(0+i));
         outpass[i] = HEXADEC_TOKEN(rand()%64);
     }
+    outpass[length+1]='\0';
     return outpass;
 }
