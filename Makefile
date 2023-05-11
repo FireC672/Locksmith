@@ -1,2 +1,2 @@
 all: 
-	gcc locksmith.c passgen.c -o passgen
+	gcc locksmith.c util.c passgen.c -o passgen
