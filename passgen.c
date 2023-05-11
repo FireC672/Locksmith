@@ -8,9 +8,9 @@ char* base64_pass(int length){
     char* outpass = malloc(length+2);
     if(outpass == NULL)return NULL; 
     
+    srand(time(NULL));
     for(int i = 0; i < length; i++){
-        srand(time(0+i));
-        outpass[i] = BASE64_TOKEN(rand()%64);
+        outpass[i] = BASE64_TOKEN[rand()%64];
     }
     outpass[length+1]='\0';
 
@@ -22,9 +22,9 @@ char* hex_pass(int length){
     char* outpass = malloc(length+2);
     if(outpass == NULL)return NULL; 
     
+    srand(time(NULL));
     for(int i = 0; i < length; i++){
-        srand(time(0+i));
-        outpass[i] = HEXADEC_TOKEN(rand()%64);
+        outpass[i] = HEXADEC_TOKEN[rand()%22];
     }
     outpass[length+1]='\0';
     return outpass;
