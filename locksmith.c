@@ -12,28 +12,31 @@ int main(int argc, char** argv){
    }
 
    for(int i = 1; i < argc; i++){
-      bool_t badOption = TRUE;
+      //bool_t badOption = TRUE;
       if(!strcmp(argv[i],"--base64")){
          
          printf("Please specify length: ");
-         int nLength=0; 
+         int nLength=1; 
 
-         scanf("%u",&nLength);
+         fflush(stdin);
 
-         char* base64_p = base64_pass(nLength);
+         scanf("%i",&nLength);
 
-         if(base64_p == NULL)__fatal_assertion__("malloc() failed.");
+         char* generatedBase64 = base64_pass(nLength);
 
-        // printf("%s",base64_p);
-         free(base64_p);
+         for(int i = 0; i < nLength; i++)putchar(generatedBase64[i]);
+
+         putchar('\n');
+         free(generatedBase64);
+       //  badOption=FALSE;
       }
 
 
 
-      if(badOption){
-         printf("Bad option \'%s\' \nType -h for help.\n",argv[i]);
-         return 1;
-      }
+      // if(badOption == TRUE){
+      //    printf("Bad option \'%s\' \nType -h for help.\n",argv[i]);
+      //    return 1;
+      // }
    }
    return 0;
 }
