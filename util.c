@@ -6,7 +6,7 @@ void printout_help(){
     printf("--base64: will generate a base-64 password.\n");
 }
 
-int pow2(int n, int b){
+long pow2(int n, int b){
     int tot = 1;
     for(int i = 0; i < n; i++){
        tot *= b;

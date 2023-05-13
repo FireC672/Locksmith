@@ -51,7 +51,8 @@ int main(int argc, char** argv){
       free(out_base64);
       
       if(countPossibilites){
-         printf("There are %i possibilites.\n",pow2(passlen,strlen(BASE64_TOKEN)));
+         long p = pow2(passlen,strlen(BASE64_TOKEN));
+         printf("There are %ld possibilites.\n",p);
       }
 
       return 0;

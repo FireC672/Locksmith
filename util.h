@@ -10,7 +10,7 @@
 
 void printout_help();
 
-int pow2(int n, int b);
+long pow2(int n, int b);
 
 int str2uint(char *s);
 
