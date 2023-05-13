@@ -6,6 +6,8 @@
 
 bool_t encodeBase64=FALSE;
 
+bool_t countPossibilites=FALSE;
+
 int passlen = 0;
 
 int main(int argc, char** argv){
@@ -37,12 +39,21 @@ int main(int argc, char** argv){
          if(!(i+2 < argc))break; 
          i+=2;
       }
+
+      if(!strcmp(argv[i],"--c-possibilites")){
+         countPossibilites=TRUE;
+      }
    }
 
    if(encodeBase64){
       char* out_base64 = base64_pass(passlen);
       printf("%s\n",out_base64);
       free(out_base64);
+      
+      if(countPossibilites){
+         printf("There are %i possibilites.\n",pow2(passlen,strlen(BASE64_TOKEN)));
+      }
+
       return 0;
    }
    return 0;
