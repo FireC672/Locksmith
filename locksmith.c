@@ -18,7 +18,12 @@ int main(int argc, char** argv){
    }
 
    for(int i = 1; i < argc; i++){
-      //bool_t badOption = TRUE;
+      if(!strcmp(argv[i],"--help")){
+         // abort all other steps.
+         printout_help();
+         return 0;
+      }
+
       if(!strcmp(argv[i],"--base64")){
          encodeBase64=TRUE;
          encodeHexMod=FALSE;

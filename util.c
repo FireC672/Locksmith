@@ -3,19 +3,19 @@
 #include <string.h>
 
 void printout_help(){
-    printf("Passgenerator is a powerful password generator,\n");
+    printf("Passgenerator or Locksmith is a powerful password generator,\n");
     printf("And password rater, Passgenerator has cryptomodules\n for generating better passwords.\n");
 
     printf("\n--- AVAILABLE CRYPTOMODULES ---\n");
     printf("\t Base-64 Crypto: \'--base64\' \n");
     printf("\t Hexadecimal Crypto: \'--hex\' \n");
 
-    printf("\nPassgenerator has also misc functions like, counting\n combinations \'--count-combinations\'\n");
+    printf("\nPassgenerator or Locksmith has also misc functions like, counting\n combinations \'--count-combinations\'\n");
 
 
-    printf("\n\nPassgenerator is a free, open-source project.\n");
-    printf("Passgenerator is under the GNU General Public License.\n \
-        And comes with absolutely no warranty. It was made By FireC675.\n");
+    printf("\n\nPassgenerator/Locksmith is a free, open-source project.\n");
+    printf("Passgenerator/Locksmith is under the GNU General Public License.\n\
+And comes with absolutely no warranty. It was made By FireC675.\n");
 }
 
 long pow2(int n, int b){
