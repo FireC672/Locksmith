@@ -18,6 +18,15 @@ int main(int argc, char** argv){
       //bool_t badOption = TRUE;
       if(!strcmp(argv[i],"--base64")){
          encodeBase64=TRUE;
+
+         if(!(i+1 < argc)){
+            printf("Please specify a length.\n");
+            printf("\t%s %s ####\n",argv[0],argv[1]);
+            putchar('\t');
+            for(int i = 0; i < strlen(argv[0])+strlen(argv[1])+1;i++)putchar(' ');
+            printf(" ^~~~~~~~ Specify length here.\n");
+            return 1;
+         }
          passlen = str2uint(argv[i+1]);
 
          if(passlen == -1){
@@ -32,7 +41,7 @@ int main(int argc, char** argv){
 
    if(encodeBase64){
       char* out_base64 = base64_pass(passlen);
-      printf("%s",out_base64);
+      printf("%s\n",out_base64);
       free(out_base64);
       return 0;
    }
