@@ -72,7 +72,7 @@ int main(int argc, char** argv){
       free(out_base64);
       
       if(countPossibilites){
-         long p = pow2(passlen,(int)strlen(BASE64_TOKEN));
+         unsigned long p = pow2(passlen,(int)strlen(BASE64_TOKEN));
          printf("There are %ld possibilites.\n",p);
       }
 
@@ -85,8 +85,8 @@ int main(int argc, char** argv){
       free(out_base64);
       
       if(countPossibilites){
-         long p = pow2(passlen,(int)strlen(HEXADEC_TOKEN));
-         printf("There are %ld possibilites.\n",p);
+         unsigned long p = pow2(passlen,(int)strlen(HEXADEC_TOKEN));
+         printf("There are %lu possibilites.\n",p);
       }
 
       return 0;
