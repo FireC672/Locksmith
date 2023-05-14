@@ -46,5 +46,8 @@ double evaluate_password(int length, char* password){
             specialCharacters++;
     }
 
+    // printf("%i spch -- %i digs -- %i lowcs -- %i upcsc.\n",
+    // specialCharacters,digits,lowercases,uppercases);
+
     return ((double)(specialCharacters+digits+lowercases+uppercases))/(4+length);
 }

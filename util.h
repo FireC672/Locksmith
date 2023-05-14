@@ -10,10 +10,10 @@
                                  exit(1);
 
 #define IN_ARRAY(val, arr, len) ({ \
-    bool found = false; \
+    int found = 0; \
     for (int i = 0; i < len; i++) { \
         if (arr[i] == val) { \
-            found = true; \
+            found = 1; \
             break; \
         } \
     } \
@@ -21,10 +21,10 @@
 })
 
 #define INSTR_ARRAY(val, arr, len) ({ \
-    bool found = false; \
+    int found = 0; \
     for (int i = 0; i < len; i++) { \
-        if (!strcmp(arr[i],val)) { \
-            found = true; \
+        if (!strcmp(val,arr[i])) { \
+            found = 1; \
             break; \
         } \
     } \
