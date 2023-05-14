@@ -45,6 +45,10 @@ int main(int argc, char** argv){
          i+=2;
       }
 
+      if(!strcmp(argv[i],"--evaluate")){
+
+      }
+
       if(!strcmp(argv[i],"--hex")){
          encodeHexMod=TRUE;
          encodeBase64=FALSE;

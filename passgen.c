@@ -1,6 +1,7 @@
 #include "passgen.h"
 #include <stdio.h> 
 #include <stdlib.h> 
+#include <ctype.h>
 #include <time.h>
 
 // Generates a 64 base password.
@@ -28,4 +29,22 @@ char* hex_pass(int length){
     }
     outpass[length+1]='\0';
     return outpass;
+}
+
+
+double evaluate_password(int length, char* password){
+    int specialCharacters=0, digits=0, lowercases=0, uppercases=0;
+
+    for(int i = 0; i < length; i++){
+        if(isdigit(password[i]))digits++;
+        if(isalpha(password[i])){
+            lowercases += isupper(password[i]);
+            uppercases += islower(password[i]);
+        }
+
+        if(isascii(password[i]) && !isalpha(password[i]))
+            specialCharacters++;
+    }
+
+    return ((double)(specialCharacters+digits+lowercases+uppercases))/(4+length);
 }

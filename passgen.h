@@ -9,4 +9,6 @@ char* base64_pass(int length);
 // Generates a hex password.
 char* hex_pass(int length);
 
+double evaluate_password(int length, char* password);
+
 #endif
