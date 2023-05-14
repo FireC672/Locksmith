@@ -11,4 +11,26 @@ char* hex_pass(int length);
 
 double evaluate_password(int length, char* password);
 
+// Ten of the most used passwords: 
+/*
+123456 6  <--+
+password 8 <-+--=> 23
+123456789 9 <+ 
+12345678 8
+12345 5
+1234567 7
+1234567890 10
+qwerty 6
+abc123 6
+admin 5
+
+TOTAL: 70 characters + 10 null terminators
+TOTAL: 80 characters
+*/
+
+// Will generate the ten most used passwords.
+char** outdb();
+
+int isPasswordInDatabase(char* password, int length);
+
 #endif

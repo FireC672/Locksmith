@@ -12,7 +12,7 @@ bool_t countPossibilites=FALSE;
 int passlen = 0;
 
 int main(int argc, char** argv){
-
+   return 0;
    if(argc == 1){
       printout_help();
       return 0;
