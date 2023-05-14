@@ -9,7 +9,7 @@ char* base64_pass(int length);
 // Generates a hex password.
 char* hex_pass(int length);
 
-double evaluate_password(int length, char* password);
+double evaluate_password(int length, char* password, int** outputs);
 
 // Ten of the most used passwords: 
 /*

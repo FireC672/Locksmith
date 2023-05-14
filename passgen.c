@@ -33,7 +33,7 @@ char* hex_pass(int length){
 }
 
 
-double evaluate_password(int length, char* password){
+double evaluate_password(int length, char* password, int** outputs){
     int specialCharacters=0, digits=0, lowercases=0, uppercases=0;
 
     for(int i = 0; i < length; i++){
@@ -46,6 +46,11 @@ double evaluate_password(int length, char* password){
         if(isascii(password[i]) && !isalpha(password[i]))
             specialCharacters++;
     }
+
+    outputs[0]=specialCharacters; 
+    outputs[1]=lowercases;
+    outputs[2]=uppercases;
+    outputs[3]=digits;
 
     // printf("%i spch -- %i digs -- %i lowcs -- %i upcsc.\n",
     // specialCharacters,digits,lowercases,uppercases);
@@ -71,7 +76,7 @@ int isPasswordInDatabase(char* password, int length){
     // Not in database, but not safe either.
     if(length < 5)return 2;
     int code = 0;
-    if(length > 5 && length < 11){
+    if(length > 5 && length < 10){
         char** outdatabase = outdb();
         // In database.
         if(INSTR_ARRAY(password,outdatabase,10)){

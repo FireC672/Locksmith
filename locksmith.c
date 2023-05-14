@@ -12,7 +12,7 @@ bool_t countPossibilites=FALSE;
 int passlen = 0;
 
 int main(int argc, char** argv){
-   return 0;
+
    if(argc == 1){
       printout_help();
       return 0;
@@ -47,7 +47,34 @@ int main(int argc, char** argv){
       }
 
       if(!strcmp(argv[i],"--evaluate")){
+         int nLength = strlen(argv[i+1]);
+         char* inpass = malloc(nLength);
+         for(int j = 0; j < nLength;j++)inpass[j]=argv[i+1][j];
 
+         uint8_t out = isPasswordInDatabase(inpass,nLength);
+
+         if(out == 2){
+            printf("Password is unsecure, a shorter password is likely more crackable.\n");
+            if(!(i+2 < argc))break; 
+            i+=2;
+            free(inpass);
+            continue;
+         }
+         
+         if(out == 1){
+            printf("Password is a very common one, this password is in the scope of hackers.\n");
+            if(!(i+2 < argc))break; 
+            i+=2;
+            free(inpass);
+            continue;
+         }
+
+         
+
+         free(inpass);
+
+         if(!(i+2 < argc))break; 
+         i+=2;
       }
 
       if(!strcmp(argv[i],"--hex")){
