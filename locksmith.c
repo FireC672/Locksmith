@@ -110,7 +110,7 @@ int main(int argc, char** argv){
             printf("\033[1m\033[33mMedium Safety.\033[0m\n");
          }
          if(evaluation < 0.37 && evaluation > 0.2){
-            printf("\033[31mWeak.\033[0m");
+            printf("\033[31mWeak.\033[0m\n");
          }
          if(evaluation < 0.2){
             printf("\033[31m\033[1mDangerously Weak.\033[0m\n");

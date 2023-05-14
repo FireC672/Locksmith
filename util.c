@@ -11,6 +11,7 @@ void printout_help(){
     printf("\t Hexadecimal Crypto: \'--hex\' \n");
 
     printf("\nPassgenerator or Locksmith has also misc functions like, counting\n combinations \'--count-combinations\'\n");
+    printf("Locksmith can evaluate the safety of your passwords by typing \'--evaluate\' followed by a password input.\n");
 
 
     printf("\n\nPassgenerator/Locksmith is a free, open-source project.\n");
