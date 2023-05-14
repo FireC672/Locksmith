@@ -50,28 +50,50 @@ int main(int argc, char** argv){
          int nLength = strlen(argv[i+1]);
          char* inpass = malloc(nLength);
          for(int j = 0; j < nLength;j++)inpass[j]=argv[i+1][j];
-
-         uint8_t out = isPasswordInDatabase(inpass,nLength);
-
-         if(out == 2){
-            printf("Password is unsecure, a shorter password is likely more crackable.\n");
-            if(!(i+2 < argc))break; 
-            i+=2;
-            free(inpass);
-            continue;
-         }
          
-         if(out == 1){
-            printf("Password is a very common one, this password is in the scope of hackers.\n");
-            if(!(i+2 < argc))break; 
-            i+=2;
-            free(inpass);
-            continue;
+         // if(out == 2){
+         //    printf("Password is unsecure, a shorter password is likely more crackable.\n");
+         //    if(!(i+2 < argc))break; 
+         //    i+=2;
+         //    free(inpass);
+         //    continue;
+         // }
+         
+         // if(out == 1){
+         //    printf("Password is a very common one, this password is in the scope of hackers.\n");
+         //    if(!(i+2 < argc))break; 
+         //    i+=2;
+         //    free(inpass);
+         //    continue;
+         // }
+
+         int values[4] = {0,0,0,0};
+         double evaluation = evaluate_password(nLength, inpass, values);
+
+         printf("+----------------------------+------------------------+\n");
+         printf("| Special Characters         |    %.4i                |\n",values[0]);
+         printf("| Digits (0-9)               |    %.4i                |\n",values[1]);
+         printf("| Lowercases Letters         |    %.4i                |\n",values[2]);
+         printf("| Uppercases Letters         |    %.4i                |\n",values[3]);
+         printf("+----------------------------+------------------------+\n");
+         printf("| Length (≥ 10)              |    %.4i                |\n",nLength);
+         printf("+----------------------------+------------------------+\n");
+
+         printf("Final Evaluation: %.2f\n\n",evaluation);
+
+         for(int i = 0; i < 63; i++){
+            int flooredIndex = (int)(evaluation*63);
+
+            if(63-flooredIndex == i)putchar('+');
+            else putchar(' ');
          }
 
-         
+         putchar('\n');
 
-         free(inpass);
+         printf("\033[42m<+----------------\033[43m-----------+-----------\033[41m--------------------+>\033[0m\n");
+         printf("\033[32m\033[1mPowerful                  \033[33mMedium                                \033[31mWorse\033[0m\n");
+
+         free(inpass); 
 
          if(!(i+2 < argc))break; 
          i+=2;

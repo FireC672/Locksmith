@@ -33,8 +33,8 @@ char* hex_pass(int length){
 }
 
 
-double evaluate_password(int length, char* password, int** outputs){
-    int specialCharacters=0, digits=0, lowercases=0, uppercases=0;
+double evaluate_password(int length, char* password, int* outputs){
+    double specialCharacters=0, digits=0, lowercases=0, uppercases=0;
 
     for(int i = 0; i < length; i++){
         if(isdigit(password[i]))digits++;
@@ -47,15 +47,15 @@ double evaluate_password(int length, char* password, int** outputs){
             specialCharacters++;
     }
 
-    outputs[0]=specialCharacters; 
-    outputs[1]=lowercases;
-    outputs[2]=uppercases;
-    outputs[3]=digits;
+    outputs[0]=(int)specialCharacters; 
+    outputs[1]=(int)lowercases;
+    outputs[2]=(int)uppercases;
+    outputs[3]=(int)digits;
 
     // printf("%i spch -- %i digs -- %i lowcs -- %i upcsc.\n",
     // specialCharacters,digits,lowercases,uppercases);
 
-    return ((double)(specialCharacters+digits+lowercases+uppercases))/(4+length);
+    return ((double)(specialCharacters*1.5+digits*1.25+lowercases*1.1+uppercases))/(4+length);
 }
 
 char** outdb(){
