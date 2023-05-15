@@ -72,9 +72,9 @@ int main(int argc, char** argv){
 
          printf("+----------------------------+------------------------+\n");
          printf("| Special Characters         |    %.4i                |\n",values[0]);
-         printf("| Digits (0-9)               |    %.4i                |\n",values[1]);
-         printf("| Lowercases Letters         |    %.4i                |\n",values[2]);
-         printf("| Uppercases Letters         |    %.4i                |\n",values[3]);
+         printf("| Digits (0-9)               |    %.4i                |\n",values[3]);
+         printf("| Lowercases Letters         |    %.4i                |\n",values[1]);
+         printf("| Uppercases Letters         |    %.4i                |\n",values[2]);
          printf("+----------------------------+------------------------+\n");
          printf("| Length (≥ 10)              |    %.4i                |\n",nLength);
          printf("+----------------------------+------------------------+\n");
