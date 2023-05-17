@@ -58,6 +58,25 @@ double evaluate_password(int length, char* password, int* outputs){
     return 1/((specialCharacters*1+lowercases+uppercases+digits)*length);
 }
 
+double evaluate2(int length, char* password){
+    int spchar, lowc, uprc, digs;
+    int unique_chars=0;
+    char* seenCharacters = malloc(length);
+    int j = 0;
+
+    for(int i = 0; i < length; i++){
+        if(CHAR_INSTR(password[i],password,length) == 0){
+            seenCharacters[j++] = password[j];
+            unique_chars++;
+        }
+
+        if(isascii(password[i]) && !isalpha(password[i]) && !isdigit(password[i]))digs++;
+        
+    }
+
+    free(seenCharacters);
+}
+
 char** outdb(){
     char** db = malloc(80);
     db[0] = "123456";

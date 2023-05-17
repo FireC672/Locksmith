@@ -31,6 +31,13 @@
     found; \
 })
 
+#define CHAR_INSTR(chr, str, len) {\
+   for(int i = 0; i < len; i++){\
+     if(str[i] == chr)1;\
+   }\
+   0; \
+}
+
 void printout_help();
 
 long pow2(int n, int b);

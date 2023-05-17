@@ -9,24 +9,11 @@ char* base64_pass(int length);
 // Generates a hex password.
 char* hex_pass(int length);
 
+// This function is now obsolete.
 double evaluate_password(int length, char* password, int* outputs);
 
-// Ten of the most used passwords: 
-/*
-123456 6  <--+
-password 8 <-+--=> 23
-123456789 9 <+ 
-12345678 8
-12345 5
-1234567 7
-1234567890 10
-qwerty 6
-abc123 6
-admin 5
-
-TOTAL: 70 characters + 10 null terminators
-TOTAL: 80 characters
-*/
+// This is the now improved function.
+double evaluate2(int length, char* password);
 
 // Will generate the ten most used passwords.
 char** outdb();
