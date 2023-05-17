@@ -43,7 +43,7 @@ double evaluate_password(int length, char* password, int* outputs){
             uppercases += islower(password[i]);
         }
 
-        if(isascii(password[i]) && !isalpha(password[i]))
+        if(isascii(password[i]) && !isdigit(password[i]) && !isalpha(password[i]))
             specialCharacters++;
     }
 
@@ -55,7 +55,7 @@ double evaluate_password(int length, char* password, int* outputs){
     // printf("%i spch -- %i digs -- %i lowcs -- %i upcsc.\n",
     // specialCharacters,digits,lowercases,uppercases);
 
-    return ((double)(specialCharacters*1+digits*1+lowercases*0.25+uppercases*0.25))/(4);
+    return 1/((specialCharacters*1+lowercases+uppercases+digits)*length);
 }
 
 char** outdb(){

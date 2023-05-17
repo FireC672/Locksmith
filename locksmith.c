@@ -47,34 +47,25 @@ int main(int argc, char** argv){
       }
 
       if(!strcmp(argv[i],"--evaluate")){
+
+         if(!(i+1 < argc)){
+            printf("\'--evaluate\' needs a second argument.\n");
+            return 1;
+         }
+
          int nLength = strlen(argv[i+1]);
          char* inpass = malloc(nLength);
          for(int j = 0; j < nLength;j++)inpass[j]=argv[i+1][j];
-         
-         // if(out == 2){
-         //    printf("Password is unsecure, a shorter password is likely more crackable.\n");
-         //    if(!(i+2 < argc))break; 
-         //    i+=2;
-         //    free(inpass);
-         //    continue;
-         // }
-         
-         // if(out == 1){
-         //    printf("Password is a very common one, this password is in the scope of hackers.\n");
-         //    if(!(i+2 < argc))break; 
-         //    i+=2;
-         //    free(inpass);
-         //    continue;
-         // }
 
          int values[4] = {0,0,0,0};
-         double evaluation = evaluate_password(nLength, inpass, values);
+         double tevaluation = evaluate_password(nLength, inpass, values);
+         double evaluation = 1-tevaluation;
 
          printf("+----------------------------+------------------------+\n");
          printf("| Special Characters         |    %.4i                |\n",values[0]);
          printf("| Digits (0-9)               |    %.4i                |\n",values[3]);
-         printf("| Lowercases Letters         |    %.4i                |\n",values[1]);
-         printf("| Uppercases Letters         |    %.4i                |\n",values[2]);
+         printf("| Lowercases Letters         |    %.4i                |\n",values[2]);
+         printf("| Uppercases Letters         |    %.4i                |\n",values[1]);
          printf("+----------------------------+------------------------+\n");
          printf("| Length (≥ 10)              |    %.4i                |\n",nLength);
          printf("+----------------------------+------------------------+\n");
