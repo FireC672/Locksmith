@@ -31,12 +31,15 @@
     found; \
 })
 
-#define CHAR_INSTR(chr, str, len) {\
-   for(int i = 0; i < len; i++){\
-     if(str[i] == chr)1;\
-   }\
-   0; \
-}
+// #define CHAR_INSTR(chr, str, len) {\
+//    for(int i = 0; i < len; i++){\
+//      if(str[i] == chr)1;\
+//    }\
+//    0; \
+// }
+
+
+int CHAR_INSTR(char c, char* str, int l);
 
 void printout_help();
 

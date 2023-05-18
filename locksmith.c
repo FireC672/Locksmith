@@ -58,7 +58,7 @@ int main(int argc, char** argv){
          for(int j = 0; j < nLength;j++)inpass[j]=argv[i+1][j];
 
          int values[4] = {0,0,0,0};
-         double tevaluation = evaluate_password(nLength, inpass, values);
+         double tevaluation = evaluate2(nLength, inpass);
          double evaluation = 1-tevaluation;
 
          printf("+----------------------------+------------------------+\n");
@@ -94,7 +94,7 @@ int main(int argc, char** argv){
          if(evaluation >= 1){
             printf("\033[1m\033[32mVery powerful.\n\033[0m");
          }
-         if(evaluation < 1 && evaluation > 0.74){
+         if(evaluation < 1 && evaluation >= 0.74){
             printf("\033[32mPowerful.\033[0m\n");
          }
          if(evaluation < 0.74 && evaluation > 0.37){

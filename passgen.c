@@ -59,8 +59,8 @@ double evaluate_password(int length, char* password, int* outputs){
 }
 
 double evaluate2(int length, char* password){
-    int spchar, lowc, uprc, digs;
-    int unique_chars=0;
+    double spchar, lowc, uprc, digs;
+    double unique_chars=0;
     char* seenCharacters = malloc(length);
     int j = 0;
 
@@ -70,11 +70,15 @@ double evaluate2(int length, char* password){
             unique_chars++;
         }
 
-        if(isascii(password[i]) && !isalpha(password[i]) && !isdigit(password[i]))digs++;
-        
+        if(isascii(password[i]) && !isalpha(password[i]) && !isdigit(password[i]))spchar++;
+        if(isdigit(password[i]))digs++; 
+        if(isupper(password[i]))uprc++;
+        if(islower(password[i]))lowc++;
     }
 
     free(seenCharacters);
+    double eval = 2/((spchar+digs+uprc+lowc)/(4/unique_chars));
+    return eval;
 }
 
 char** outdb(){

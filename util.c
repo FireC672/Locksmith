@@ -38,3 +38,10 @@ int str2uint(char *s){
     }
     return out;
 }
+
+int CHAR_INSTR(char c, char* str, int l){
+    for(int i = 0; i < l; i++){
+        if(c==str[i])return 1;
+    }
+    return 0;
+}
