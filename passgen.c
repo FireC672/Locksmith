@@ -3,6 +3,7 @@
 #include <stdlib.h> 
 #include <ctype.h>
 #include <time.h>
+#include <stdbool.h>
 #include "util.h"
 
 // Generates a 64 base password.
@@ -59,26 +60,14 @@ double evaluate_password(int length, char* password, int* outputs){
 }
 
 double evaluate2(int length, char* password){
-    double spchar, lowc, uprc, digs;
-    double unique_chars=0;
-    char* seenCharacters = malloc(length);
-    int j = 0;
+    double score = 0; 
 
     for(int i = 0; i < length; i++){
-        if(CHAR_INSTR(password[i],password,length) == 0){
-            seenCharacters[j++] = password[j];
-            unique_chars++;
-        }
-
-        if(isascii(password[i]) && !isalpha(password[i]) && !isdigit(password[i]))spchar++;
-        if(isdigit(password[i]))digs++; 
-        if(isupper(password[i]))uprc++;
-        if(islower(password[i]))lowc++;
+        if(isascii(password[i]) && !isalnum(password[i]))score+=1.0;
+        if(isdigit(password[i]) ||  isalpha(password[i]))score+=0.5;
     }
 
-    free(seenCharacters);
-    double eval = 2/((spchar+digs+uprc+lowc)/(4/unique_chars));
-    return eval;
+    return 2/score;
 }
 
 char** outdb(){

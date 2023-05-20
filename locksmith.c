@@ -59,7 +59,7 @@ int main(int argc, char** argv){
 
          int values[4] = {0,0,0,0};
          double tevaluation = evaluate2(nLength, inpass);
-         double evaluation = 1-tevaluation;
+         double evaluation = tevaluation;
 
          printf("+----------------------------+------------------------+\n");
          printf("| Special Characters         |    %.4i                |\n",values[0]);
@@ -87,25 +87,6 @@ int main(int argc, char** argv){
 
          printf("\033[42m<+----------------\033[43m-----------+-----------\033[41m--------------------+>\033[0m\n");
          printf("\033[32m\033[1mPowerful                  \033[33mMedium                              \033[31mWeak\033[0m\n");
-         
-
-         printf("Final rating: ");
-
-         if(evaluation >= 1){
-            printf("\033[1m\033[32mVery powerful.\n\033[0m");
-         }
-         if(evaluation < 1 && evaluation >= 0.74){
-            printf("\033[32mPowerful.\033[0m\n");
-         }
-         if(evaluation < 0.74 && evaluation > 0.37){
-            printf("\033[1m\033[33mMedium Safety.\033[0m\n");
-         }
-         if(evaluation < 0.37 && evaluation > 0.2){
-            printf("\033[31mWeak.\033[0m\n");
-         }
-         if(evaluation < 0.2){
-            printf("\033[31m\033[1mDangerously Weak.\033[0m\n");
-         }
 
          free(inpass); 
 
